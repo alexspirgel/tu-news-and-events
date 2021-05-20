@@ -1,0 +1,101 @@
+.wysiwyg {
+	$selector-wysiwyg: &;
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+	&__container {
+		width: 100%;
+		max-width: $width-narrow;
+		margin: auto;
+	}
+	&__drop-cap {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		float: left;
+		height: 4rem;
+		width: 4rem;
+		margin-top: 0.5rem;
+		margin-right: 0.75rem;
+		&::before, &::after {
+			content: "";
+			box-sizing: border-box;
+			position: absolute;
+			width: 0;
+			height: 0;
+			border-width: 2px;
+			border-style: solid;
+			border-color: transparent;
+			pointer-events: none;
+		}
+		&::before {
+			top: 0;
+			left: 0;
+		}
+		&::after {
+			bottom: 0;
+			right: 0;
+		}
+		&#{$selector-entered-viewport} {
+			&::before, &::after {
+				width: 100%;
+				height: 100%;
+			}
+			$animation-duration: 0.75s;
+			$animation-delay: 0.25s;
+			&::before {
+				border-top-color: $color-gray;
+				border-right-color: $color-gray;
+				transition: border-color 0s linear #{$animation-delay},
+					width #{$animation-duration * 0.25} linear #{$animation-delay},
+					height #{$animation-duration * 0.25} linear #{($animation-duration * 0.25) + $animation-delay};
+			}
+			&::after {
+				border-bottom-color: $color-gray;
+				border-left-color: $color-gray;
+				transition: border-color 0s linear #{($animation-duration * 0.5) + $animation-delay},
+					width #{$animation-duration * 0.25} linear #{($animation-duration * 0.5) + $animation-delay},
+					height #{$animation-duration * 0.25} linear #{($animation-duration * 0.75) + $animation-delay};
+			}
+		}
+	}
+	&__drop-cap-letter {
+		margin-top: -0.4rem;
+		font-size: 3rem;
+		font-family: 'Harriet Display';
+		font-weight: 700;
+		line-height: 1;
+	}
+	&__paragraph {
+		font-size: 1rem;
+		line-height: 1.625;
+		color: $color-gray;
+		opacity: 0;
+		transform: translateY(1rem);
+		transition: opacity 0.5s ease 0s, transform 0.5s ease 0s;
+		&#{$selector-in-viewport} {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	&__link {
+		color: inherit;
+		text-decoration: none;
+		cursor: pointer;
+		//fcb813
+		background: linear-gradient(0deg, rgba(252,184,19,1) 50%, rgba(252,184,19,0) 50%, rgba(252,184,19,0) 100%);
+	  background-size: 100% 200%;
+		background-position: 50% 0%;
+		&#{$selector-in-viewport} {
+			background-size: 100% 150%;
+			transition: background-size 0.5s ease 0.25s;
+		}
+		&:hover, &:focus {
+			background-size: 100% 100%;
+			transition: background-size 0.25s ease 0s;
+		}
+		&:focus {
+			outline: 1px solid #fcb813;
+		}
+	}
+}

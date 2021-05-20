@@ -1,0 +1,57 @@
+//
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../fonts/BebasNeue/BebasNeue-Regular.ttf') format('truetype');
+}
+//
+@font-face {
+  font-family: 'Harriet Display';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../../fonts/HarrietDisplay/HarrietDisplay-Light.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Harriet Display';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../../fonts/HarrietDisplay/HarrietDisplay-Black.otf') format('opentype');
+}
+//
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
+}
+
+$color-black: #000000;
+$color-gray-light: #666666;
+$color-gray: #070707;
+$color-white: #ffffff;
+$color-gold: #baa682;
+
+$selector-entered-viewport: '.entered-viewport';
+$selector-in-viewport: '.in-viewport';
+$selector-outside-viewport: '.outside-viewport';
+
+$width-narrow: 30rem; // 480px
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans';
+}
+
+header, footer {
+	width: 100%;
+	height: 200px;
+	background-color: #808080;
+}
+
+@import 'components/**/*.scss';

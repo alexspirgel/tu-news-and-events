@@ -1,0 +1,238 @@
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../fonts/BebasNeue/BebasNeue-Regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Harriet Display';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../../fonts/HarrietDisplay/HarrietDisplay-Light.otf") format("opentype"); }
+
+@font-face {
+  font-family: 'Harriet Display';
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../fonts/HarrietDisplay/HarrietDisplay-Black.otf") format("opentype"); }
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../fonts/OpenSans/OpenSans-Regular.ttf") format("truetype"); }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans'; }
+
+header, footer {
+  width: 100%;
+  height: 200px;
+  background-color: #808080; }
+
+.header__color-block {
+  position: relative;
+  height: 500px;
+  background-color: #000000;
+  overflow: hidden; }
+
+.header__left-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  left: 0;
+  margin-left: 25%;
+  text-align: center;
+  background-color: #000000;
+  transition: margin-left 0.5s ease-in-out 0.75s;
+  z-index: 2; }
+  .header.entered-viewport .header__left-container {
+    margin-left: 0; }
+
+.header__content-container {
+  position: relative;
+  width: 400px;
+  padding: 1rem; }
+
+.header__text-container {
+  color: #ffffff; }
+
+.header__subtitle {
+  font-family: 'Bebas Neue';
+  opacity: 0;
+  transition: opacity 0.25s ease 0.9s, transform 0.25s ease 1s; }
+  .header.entered-viewport .header__subtitle {
+    opacity: 1;
+    transform: translateY(0); }
+
+.header__title {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-family: 'Harriet Display';
+  font-size: 2.5rem;
+  font-weight: 300; }
+
+.header__title-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition: opacity 0.25s, transform 0.25s; }
+  .header.entered-viewport .header__title-word {
+    opacity: 1;
+    transform: translateY(0); }
+  .header__title-word:nth-child(1) {
+    transition-delay: 0s; }
+  .header__title-word:nth-child(2) {
+    transition-delay: 0.1s; }
+  .header__title-word:nth-child(3) {
+    transition-delay: 0.2s; }
+  .header__title-word:nth-child(4) {
+    transition-delay: 0.3s; }
+  .header__title-word:nth-child(5) {
+    transition-delay: 0.4s; }
+
+.header__description {
+  font-family: 'Open Sans';
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.25s ease 0.9s, transform 0.25s ease 1.75s; }
+  .header.entered-viewport .header__description {
+    opacity: 1;
+    transform: translateY(0); }
+
+.header__right-container {
+  position: absolute;
+  display: flex;
+  flex: 0 0 auto;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1; }
+
+.header__image-color-block {
+  width: 50%;
+  height: 100%;
+  background-color: #baa682;
+  transition: width 0.5s ease-in-out 0.9s; }
+  .header.entered-viewport .header__image-color-block {
+    width: 0; }
+
+.header__image-area {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  opacity: 0;
+  transition: width 0.5s ease-in-out 0.9s, opacity 0.5s linear 0s; }
+  .header.entered-viewport .header__image-area {
+    width: 100%;
+    opacity: 1; }
+
+.header__image {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.15);
+  transition: left 0.5s linear 0.9s, margin-left 2s ease-out 1.3s; }
+  .header.entered-viewport .header__image {
+    left: 6%;
+    margin-left: -6%; }
+
+.header__caption-container {
+  display: flex;
+  justify-content: flex-end; }
+
+.header__caption {
+  max-width: 50%;
+  padding-top: 0.5rem;
+  padding-right: 0.75rem;
+  font-size: 0.75rem;
+  color: #666666; }
+
+.wysiwyg {
+  margin-top: 4rem;
+  margin-bottom: 4rem; }
+  .wysiwyg__container {
+    width: 100%;
+    max-width: 30rem;
+    margin: auto; }
+  .wysiwyg__drop-cap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    height: 4rem;
+    width: 4rem;
+    margin-top: 0.5rem;
+    margin-right: 0.75rem; }
+    .wysiwyg__drop-cap::before, .wysiwyg__drop-cap::after {
+      content: "";
+      box-sizing: border-box;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-width: 2px;
+      border-style: solid;
+      border-color: transparent;
+      pointer-events: none; }
+    .wysiwyg__drop-cap::before {
+      top: 0;
+      left: 0; }
+    .wysiwyg__drop-cap::after {
+      bottom: 0;
+      right: 0; }
+    .wysiwyg__drop-cap.entered-viewport::before, .wysiwyg__drop-cap.entered-viewport::after {
+      width: 100%;
+      height: 100%; }
+    .wysiwyg__drop-cap.entered-viewport::before {
+      border-top-color: #070707;
+      border-right-color: #070707;
+      transition: border-color 0s linear 0.25s, width 0.1875s linear 0.25s, height 0.1875s linear 0.4375s; }
+    .wysiwyg__drop-cap.entered-viewport::after {
+      border-bottom-color: #070707;
+      border-left-color: #070707;
+      transition: border-color 0s linear 0.625s, width 0.1875s linear 0.625s, height 0.1875s linear 0.8125s; }
+  .wysiwyg__drop-cap-letter {
+    margin-top: -0.4rem;
+    font-size: 3rem;
+    font-family: 'Harriet Display';
+    font-weight: 700;
+    line-height: 1; }
+  .wysiwyg__paragraph {
+    font-size: 1rem;
+    line-height: 1.625;
+    color: #070707;
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: opacity 0.5s ease 0s, transform 0.5s ease 0s; }
+    .wysiwyg__paragraph.in-viewport {
+      opacity: 1;
+      transform: translateY(0); }
+  .wysiwyg__link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    background: linear-gradient(0deg, #fcb813 50%, rgba(252, 184, 19, 0) 50%, rgba(252, 184, 19, 0) 100%);
+    background-size: 100% 200%;
+    background-position: 50% 0%; }
+    .wysiwyg__link.in-viewport {
+      background-size: 100% 150%;
+      transition: background-size 0.5s ease 0.25s; }
+    .wysiwyg__link:hover, .wysiwyg__link:focus {
+      background-size: 100% 100%;
+      transition: background-size 0.25s ease 0s; }
+    .wysiwyg__link:focus {
+      outline: 1px solid #fcb813; }
