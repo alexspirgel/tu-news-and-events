@@ -122,11 +122,44 @@ const outsideViewport = (element) => {
 
 document.addEventListener("DOMContentLoaded", () => {
 
+	const article = document.querySelector('.article');
+	const infoBar = document.querySelector('.info-bar');
+	const infoBarProgress = document.querySelector('.info-bar__progress-bar');
+	let lastKnownScrollPosition = window.scrollY;
+	let scrollHandlerThrottle = false;
+	const showHideInfoBar = (scrollPosition) => {
+		const articleBoundingClientRect = article.getBoundingClientRect();
+		const articleScrollPositionStart = scrollPosition + articleBoundingClientRect.top;
+		const articleScrollPositionEnd = scrollPosition + articleBoundingClientRect.bottom - window.innerHeight;
+		if (scrollPosition > articleScrollPositionStart && scrollPosition < articleScrollPositionEnd) {
+			const articleTotalScrollLength = (articleScrollPositionEnd * 0.95) - articleScrollPositionStart;
+			const articleCurrentScrollLength = scrollPosition - articleScrollPositionStart
+			let percentage = articleCurrentScrollLength / articleTotalScrollLength;
+			percentage = Math.round(percentage * 10000) / 100;
+			infoBarProgress.style.width = percentage + '%';
+			infoBar.classList.add('show');
+		}
+		else {
+			infoBar.classList.remove('show');
+		}
+	};
+	showHideInfoBar(lastKnownScrollPosition);
+	const documentScrollHandler = (event) => {
+		lastKnownScrollPosition = window.scrollY;
+		if (!scrollHandlerThrottle) {
+			window.requestAnimationFrame(() => {
+	      showHideInfoBar(lastKnownScrollPosition);
+	      scrollHandlerThrottle = false;
+	    });
+	    scrollHandlerThrottle = true;
+		}
+	};
+	document.addEventListener('scroll', documentScrollHandler);
+
 	const headerTitle = document.querySelector('.header__title');
 	const headerTitleWords = headerTitle.textContent.split(' ');
 	headerTitleWords.unshift('');
 	const headerTitleTextContent = headerTitleWords.reduce((textContent, word) => {
-		console.log(textContent);
 		return textContent + '<span class="header__title-word">' + word + '</span> ';
 	});
 	headerTitle.innerHTML = headerTitleTextContent;

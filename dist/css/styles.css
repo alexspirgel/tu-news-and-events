@@ -22,6 +22,12 @@
   font-weight: 400;
   src: url("../../fonts/OpenSans/OpenSans-Regular.ttf") format("truetype"); }
 
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url("../../fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype"); }
+
 * {
   box-sizing: border-box; }
 
@@ -31,9 +37,54 @@ body {
   font-family: 'Open Sans'; }
 
 header, footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 200px;
-  background-color: #808080; }
+  height: 225px;
+  font-size: 2rem;
+  color: #aaaaaa;
+  background-color: #cccccc; }
+
+.body-components {
+  padding-top: 2rem;
+  padding-bottom: 2rem; }
+  .body-components .component:first-child {
+    margin-top: 0; }
+  .body-components .component:last-child {
+    margin-bottom: 0; }
+
+.featured-text {
+  position: relative;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-image: url("../../assets/forest-canopy-wide-shot_1920x1280.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; }
+  .featured-text::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.35); }
+  .featured-text__text-container {
+    position: relative;
+    width: 100%;
+    max-width: 60rem;
+    margin: auto; }
+  .featured-text__text {
+    font-family: 'Harriet Display';
+    font-size: 4rem;
+    font-weight: 300;
+    color: #ffffff; }
+  .featured-text__attribution {
+    margin-top: 1rem;
+    font-family: 'Bebas Neue';
+    font-size: 1.125rem;
+    color: #baa682; }
 
 .header__color-block {
   position: relative;
@@ -70,10 +121,9 @@ header, footer {
 .header__subtitle {
   font-family: 'Bebas Neue';
   opacity: 0;
-  transition: opacity 0.25s ease 0.9s, transform 0.25s ease 1s; }
+  transition: opacity 0.5s ease 0.75s; }
   .header.entered-viewport .header__subtitle {
-    opacity: 1;
-    transform: translateY(0); }
+    opacity: 1; }
 
 .header__title {
   margin-top: 1rem;
@@ -105,10 +155,9 @@ header, footer {
   font-family: 'Open Sans';
   font-size: 1rem;
   opacity: 0;
-  transition: opacity 0.25s ease 0.9s, transform 0.25s ease 1.75s; }
+  transition: opacity 0.5s ease 0.75s; }
   .header.entered-viewport .header__description {
-    opacity: 1;
-    transform: translateY(0); }
+    opacity: 1; }
 
 .header__right-container {
   position: absolute;
@@ -161,6 +210,42 @@ header, footer {
   font-size: 0.75rem;
   color: #666666; }
 
+.info-bar {
+  position: fixed;
+  width: 100%;
+  top: -46px;
+  left: 0;
+  border-bottom: 1px solid #baa682;
+  background-color: #ffffff;
+  z-index: 5;
+  transition: top 0.25s; }
+  .info-bar.show {
+    top: 0; }
+  .info-bar__text {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 0;
+    text-align: center; }
+  .info-bar__title {
+    display: inline-block;
+    margin-right: 1rem;
+    font-family: 'Harriet Display';
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: #070707; }
+  .info-bar__length {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #baa682; }
+  .info-bar__progress-bar {
+    display: block;
+    width: 0;
+    height: 4px;
+    margin-bottom: -1px;
+    background-color: #8d182e;
+    transition: width 0.25s linear; }
+
 .wysiwyg {
   margin-top: 4rem;
   margin-bottom: 4rem; }
@@ -200,11 +285,11 @@ header, footer {
     .wysiwyg__drop-cap.entered-viewport::before {
       border-top-color: #070707;
       border-right-color: #070707;
-      transition: border-color 0s linear 0.25s, width 0.1875s linear 0.25s, height 0.1875s linear 0.4375s; }
+      transition: border-color 0s linear 0.35s, width 0.1875s linear 0.35s, height 0.1875s linear 0.5375s; }
     .wysiwyg__drop-cap.entered-viewport::after {
       border-bottom-color: #070707;
       border-left-color: #070707;
-      transition: border-color 0s linear 0.625s, width 0.1875s linear 0.625s, height 0.1875s linear 0.8125s; }
+      transition: border-color 0s linear 0.725s, width 0.1875s linear 0.725s, height 0.1875s linear 0.9125s; }
   .wysiwyg__drop-cap-letter {
     margin-top: -0.4rem;
     font-size: 3rem;
@@ -217,7 +302,7 @@ header, footer {
     color: #070707;
     opacity: 0;
     transform: translateY(1rem);
-    transition: opacity 0.5s ease 0s, transform 0.5s ease 0s; }
+    transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s; }
     .wysiwyg__paragraph.in-viewport {
       opacity: 1;
       transform: translateY(0); }

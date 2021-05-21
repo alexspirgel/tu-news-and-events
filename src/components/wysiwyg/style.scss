@@ -42,7 +42,7 @@
 				height: 100%;
 			}
 			$animation-duration: 0.75s;
-			$animation-delay: 0.25s;
+			$animation-delay: 0.35s;
 			&::before {
 				border-top-color: $color-gray;
 				border-right-color: $color-gray;
@@ -72,7 +72,7 @@
 		color: $color-gray;
 		opacity: 0;
 		transform: translateY(1rem);
-		transition: opacity 0.5s ease 0s, transform 0.5s ease 0s;
+		transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
 		&#{$selector-in-viewport} {
 			opacity: 1;
 			transform: translateY(0);

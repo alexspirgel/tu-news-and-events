@@ -25,18 +25,26 @@
   font-weight: 400;
   src: url('../../fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../../fonts/OpenSans/OpenSans-SemiBold.ttf') format('truetype');
+}
 
 $color-black: #000000;
 $color-gray-light: #666666;
 $color-gray: #070707;
 $color-white: #ffffff;
 $color-gold: #baa682;
+$color-red: #8d182e;
 
 $selector-entered-viewport: '.entered-viewport';
 $selector-in-viewport: '.in-viewport';
 $selector-outside-viewport: '.outside-viewport';
 
 $width-narrow: 30rem; // 480px
+$width-wide: 60rem; // 480px
 
 * {
 	box-sizing: border-box;
@@ -49,9 +57,27 @@ body {
 }
 
 header, footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 	width: 100%;
-	height: 200px;
-	background-color: #808080;
+	height: 225px;
+  font-size: 2rem;
+  color: #aaaaaa;
+	background-color: #cccccc;
+}
+
+.body-components {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  .component {
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 @import 'components/**/*.scss';
