@@ -118,7 +118,31 @@ const componentInViewDefinitions = [
 				return false;
 			}
 		}
-	}
+	},
+	{
+		selector: '.teaser-block-card',
+		observerOptions: {
+			root: null,
+			rootMargin: '20px',
+			threshold: [0, 0.01]
+		},
+		ratioIsInViewport: (ratio) => {
+			if (ratio > 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		},
+		ratioIsOutsideViewport: (ratio) => {
+			if (ratio === 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+	},
 ];
 
 const intersectionHandler = (entries, observer) => {
