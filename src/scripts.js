@@ -94,6 +94,30 @@ const componentInViewDefinitions = [
 				return false;
 			}
 		}
+	},
+	{
+		selector: '.img-caption',
+		observerOptions: {
+			root: null,
+			rootMargin: '10px',
+			threshold: [0, 0.01]
+		},
+		ratioIsInViewport: (ratio) => {
+			if (ratio > 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		},
+		ratioIsOutsideViewport: (ratio) => {
+			if (ratio === 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
 	}
 ];
 

@@ -210,6 +210,24 @@ header, footer {
   font-size: 0.75rem;
   color: #666666; }
 
+.img-caption {
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto 4.5rem;
+  opacity: 0;
+  transform: translateY(2.5rem);
+  transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s; }
+  .img-caption.entered-viewport {
+    opacity: 1;
+    transform: translateY(0); }
+  .img-caption__image {
+    width: 100%;
+    margin-bottom: 1rem; }
+  .img-caption__caption {
+    font-size: .75rem;
+    line-height: 1.33;
+    color: #666666; }
+
 .info-bar {
   position: fixed;
   width: 100%;
