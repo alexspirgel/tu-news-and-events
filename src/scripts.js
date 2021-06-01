@@ -143,6 +143,30 @@ const componentInViewDefinitions = [
 			}
 		}
 	},
+	{
+		selector: '.video__player',
+		observerOptions: {
+			root: null,
+			rootMargin: '0px',
+			threshold: [0.24, 0.26]
+		},
+		ratioIsInViewport: (ratio) => {
+			if (ratio > 0.25) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		},
+		ratioIsOutsideViewport: (ratio) => {
+			if (ratio < 0.25) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+	},
 ];
 
 const intersectionHandler = (entries, observer) => {
@@ -150,9 +174,15 @@ const intersectionHandler = (entries, observer) => {
 		const entry = entries[entryProperty];
 		if (observer.ratioIsInViewport(entry.intersectionRatio)) {
 			inViewport(entry.target);
+			if (entry.target.classList.contains('video__player') && entry.target.readyState > 2) {
+				entry.target.play();
+			}
 		}
 		if (observer.ratioIsOutsideViewport(entry.intersectionRatio)) {
 			outsideViewport(entry.target);
+			if (entry.target.classList.contains('video__player')) {
+				entry.target.pause();
+			}
 		}
 	}
 }
@@ -172,6 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	const article = document.querySelector('.article');
 	const infoBar = document.querySelector('.info-bar');
+	const videoPlayer = document.querySelector('.video__player');
 	const infoBarProgress = document.querySelector('.info-bar__progress-bar');
 	let lastKnownScrollPosition = window.scrollY;
 	let scrollHandlerThrottle = false;
@@ -196,13 +227,15 @@ document.addEventListener("DOMContentLoaded", () => {
 		lastKnownScrollPosition = window.scrollY;
 		if (!scrollHandlerThrottle) {
 			window.requestAnimationFrame(() => {
-	      showHideInfoBar(lastKnownScrollPosition);
-	      scrollHandlerThrottle = false;
-	    });
+	      		showHideInfoBar(lastKnownScrollPosition);
+	      		scrollHandlerThrottle = false;
+			});
 	    scrollHandlerThrottle = true;
 		}
 	};
 	document.addEventListener('scroll', documentScrollHandler);
+
+	
 
 	const headerTitle = document.querySelector('.header__title');
 	const headerTitleWords = headerTitle.textContent.split(' ');
