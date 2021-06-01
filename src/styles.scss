@@ -70,6 +70,7 @@ header, footer {
 .body-components {
   padding-top: 2rem;
   padding-bottom: 2rem;
+  position: relative;
   .component {
     &:first-child {
       margin-top: 0;
