@@ -360,9 +360,11 @@ header, footer {
     width: 100%;
     height: auto;
     filter: saturate(0);
+    -webkit-filter: saturate(0);
     transition: filter 4s ease; }
     .video__player.entered-viewport {
-      filter: saturate(1); }
+      filter: saturate(1);
+      -webkit-filter: saturate(1); }
   .video__caption {
     margin: 1rem 3.75rem 0;
     color: #666666;
