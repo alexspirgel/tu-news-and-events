@@ -9,10 +9,12 @@
         width: 100%;
         height: auto;
         filter: saturate(0);
+        -webkit-filter: saturate(0);
         transition: filter 4s ease;
 
         &#{$selector-entered-viewport} {
             filter: saturate(1);
+            -webkit-filter: saturate(1);
         }
     }
 
