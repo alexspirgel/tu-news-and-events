@@ -44,7 +44,8 @@ $selector-in-viewport: '.in-viewport';
 $selector-outside-viewport: '.outside-viewport';
 
 $width-narrow: 33.75rem; // 540px
-$width-wide: 60rem; 
+$width-wide: 60rem;
+$width-full: 120rem;
 
 * {
 	box-sizing: border-box;
