@@ -297,6 +297,18 @@ header, footer {
   .metadata + .wysiwyg {
     margin-top: 0; }
 
+.sticky-share {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 11.75rem;
+  left: 0;
+  max-width: 120rem;
+  margin: auto;
+  z-index: 10;
+  height: 0; }
+  .sticky-share-menu {
+    margin-top: 1rem; }
+
 .teaser-block {
   width: 100%;
   max-width: 60rem;
