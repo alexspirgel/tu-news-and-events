@@ -148,10 +148,10 @@ const componentInViewDefinitions = [
 		observerOptions: {
 			root: null,
 			rootMargin: '0px',
-			threshold: [0.8, 0.4]
+			threshold: [0.7, 0.4]
 		},
 		ratioIsInViewport: (ratio) => {
-			if (ratio > 0.8) {
+			if (ratio > 0.7) {
 				return true;
 			}
 			else {
