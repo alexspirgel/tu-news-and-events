@@ -167,6 +167,54 @@ const componentInViewDefinitions = [
 			}
 		}
 	},
+	{
+		selector: '.pull-quote',
+		observerOptions: {
+			root: null,
+			rootMargin: '20px',
+			threshold: [0, 0.01]
+		},
+		ratioIsInViewport: (ratio) => {
+			if (ratio > 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		},
+		ratioIsOutsideViewport: (ratio) => {
+			if (ratio === 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+	},
+	{
+		selector: '.stories-list',
+		observerOptions: {
+			root: null,
+			rootMargin: '20px',
+			threshold: [0, 0.01]
+		},
+		ratioIsInViewport: (ratio) => {
+			if (ratio > 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		},
+		ratioIsOutsideViewport: (ratio) => {
+			if (ratio === 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+	},
 ];
 
 const intersectionHandler = (entries, observer) => {
