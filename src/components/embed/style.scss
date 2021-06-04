@@ -1,0 +1,17 @@
+.embed {
+	$selector-embed: &;
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+	opacity: 0;
+	transform: translateY(1rem);
+	transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+	&#{$selector-in-viewport} {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	&__container {
+		width: 100%;
+		max-width: $width-wide;
+		margin: auto;
+	}
+}

@@ -1,65 +1,86 @@
 .cta {
-    background-color: #000;
-    display: flex;
-    flex-direction: column;
-    color: #FFF;
+	$selector-cta: &;
+	position: relative;
+	display: inline-block;
+	float: left;
+	width: 24rem;
+	margin-top: 1.5rem;
+	margin-right: 2rem;
+	margin-bottom: 1.5rem;
+	margin-left: -12rem;
+	overflow: hidden;
+	text-decoration: none;
+	background: $color-gold;
+	z-index: 1;
+	transform: translateX(-2rem);
+	opacity: 0;
+	visibility: hidden;
+	transition-property: transform, opacity, visibility;
+	transition-duration: 0.5s;
+	&#{$selector-entered-viewport} {
+		transform: translateX(0);
+		opacity: 1;
+		visibility: visible;
+	}
+	&__image-wrapper {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		overflow: hidden;
+		transition: height 0.6s ease-in-out 0.5s;
+		#{$selector-cta}#{$selector-entered-viewport} & {
+			height: 14rem;
+		}
+	}
+	&__image {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transform: scale(1);
+		transition: transform 0.5s;
+		#{$selector-cta}:hover & {
+			transform: scale(1.1);
+		}
+	}
+	&__text-wrapper {
+		margin-top: 14rem;
+		padding: 1.75rem;
+		background-color: $color-black;
+		transform: translateY(100%);
+		transition: transform 0.5s ease-in-out 0.65s;
+		#{$selector-cta}#{$selector-entered-viewport} & {
+			transform: translateY(0);
+		}
+	}
+	&__topic {
+		display: block;
+		margin-bottom: 0.5rem;
+		font-family: "Bebas Neue";
+		font-size: 1.125rem;
+		color: $color-gold;
+	}
+	&__title {
+		font-family: "Bebas Neue";
+		margin-top: 0;
+		margin-bottom: 1.25rem;
+		font-size: 2.25rem;
+		line-height: 1.2;
+		letter-spacing: 0.5px;
+		color: $color-white;
+	}
+	&__link {
+		text-decoration: none;
+		color: $color-white;
+		font-family: "Bebas Neue";
+		font-size: 1rem;
+		&::after {
+			content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 8"><path id="caret" d="M4.46 4.266L1.427 7.3a.373.373 0 01-.531 0l-.356-.352a.38.38 0 010-.531L2.945 4 .54 1.582a.38.38 0 010-.531L.895.699a.373.373 0 01.53 0l3.036 3.035a.38.38 0 010 .532zm0 0" fill="white"/></svg>');
+			display: inline-block;
+			width: 0.4rem;
+			margin-left: 0.4rem;
+		}
+	}
 
-    @media (min-width: 1024px) {
-        float: left;
-        margin: 1rem 1.875rem 2.5rem -13rem;
-        max-width: 385px;
-    }
-
-    &::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
-
-    &-content {
-        order: 2;
-        padding: 1.5rem 2rem 2rem;
-    }
-
-    &__topic {
-        margin-bottom: .5rem;
-        color: #BAA682;
-        font-family: "Bebas Neue";
-        font-size: 1.125rem;
-        letter-spacing: 0.25px;
-        line-height: 1.167;
-        display: block;
-    }
-
-    &__title {
-        font-family: "Bebas Neue";
-        margin-top: 0;
-        font-size: 2.25rem;
-        line-height: 1.20;
-        letter-spacing: .5px;
-        margin-bottom: 1.25rem;
-    }
-
-    &__link {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: #FFF;
-        font-family: "Bebas Neue";
-        font-size: 1rem;
-        letter-spacing: 0;
-        line-height: 1.875rem;
-
-        &::after {
-            content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 8"><path id="caret" d="M4.46 4.266L1.427 7.3a.373.373 0 01-.531 0l-.356-.352a.38.38 0 010-.531L2.945 4 .54 1.582a.38.38 0 010-.531L.895.699a.373.373 0 01.53 0l3.036 3.035a.38.38 0 010 .532zm0 0" fill="white"/></svg>');
-            display: block;
-            width: .5rem;
-            margin-left: .5rem;
-        }
-    }
-
-    &__image {
-        max-width: 100%;
-        order: 1;
-    }
 }

@@ -215,6 +215,54 @@ const componentInViewDefinitions = [
 			}
 		}
 	},
+	{
+		selector: '.cta',
+		observerOptions: {
+			root: null,
+			rootMargin: '0px',
+			threshold: [0.49, 0.5]
+		},
+		ratioIsInViewport: (ratio) => {
+			if (ratio >= 0.5) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		},
+		ratioIsOutsideViewport: (ratio) => {
+			if (ratio < 0.5) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+	},
+	{
+		selector: '.embed',
+		observerOptions: {
+			root: null,
+			rootMargin: '20px',
+			threshold: [0, 0.01]
+		},
+		ratioIsInViewport: (ratio) => {
+			if (ratio > 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		},
+		ratioIsOutsideViewport: (ratio) => {
+			if (ratio === 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+	},
 ];
 
 const intersectionHandler = (entries, observer) => {
