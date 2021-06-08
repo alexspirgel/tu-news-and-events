@@ -73,7 +73,7 @@
 		opacity: 0;
 		transform: translateY(1rem);
 		transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
-		&#{$selector-in-viewport} {
+		&#{$selector-entered-viewport} {
 			opacity: 1;
 			transform: translateY(0);
 		}
@@ -86,7 +86,7 @@
 		background: linear-gradient(0deg, rgba(252,184,19,1) 50%, rgba(252,184,19,0) 50%, rgba(252,184,19,0) 100%);
 	  background-size: 100% 200%;
 		background-position: 50% 0%;
-		&#{$selector-in-viewport} {
+		&#{$selector-entered-viewport} {
 			background-size: 100% 150%;
 			transition: background-size 0.5s ease 0.25s;
 		}

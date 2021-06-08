@@ -135,7 +135,7 @@ header, footer {
   opacity: 0;
   transform: translateY(1rem);
   transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s; }
-  .embed.in-viewport {
+  .embed.entered-viewport {
     opacity: 1;
     transform: translateY(0); }
   .embed__container {
@@ -660,7 +660,7 @@ header, footer {
     opacity: 0;
     transform: translateY(1rem);
     transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s; }
-    .wysiwyg__paragraph.in-viewport {
+    .wysiwyg__paragraph.entered-viewport {
       opacity: 1;
       transform: translateY(0); }
   .wysiwyg__link {
@@ -670,7 +670,7 @@ header, footer {
     background: linear-gradient(0deg, #fcb813 50%, rgba(252, 184, 19, 0) 50%, rgba(252, 184, 19, 0) 100%);
     background-size: 100% 200%;
     background-position: 50% 0%; }
-    .wysiwyg__link.in-viewport {
+    .wysiwyg__link.entered-viewport {
       background-size: 100% 150%;
       transition: background-size 0.5s ease 0.25s; }
     .wysiwyg__link:hover, .wysiwyg__link:focus {
