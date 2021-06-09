@@ -66,6 +66,11 @@
 		font-weight: 700;
 		line-height: 1;
 	}
+	&__heading-2 {
+		font-family: 'Harriet Display';
+		font-size: 2rem;
+		font-weight: 400;
+	}
 	&__paragraph {
 		font-size: 1rem;
 		line-height: 1.725;
@@ -91,7 +96,7 @@
 			transition: background-size 0.5s ease 0.25s;
 		}
 		&:hover, &:focus {
-			background-size: 100% 100%;
+			background-size: 100% 110%;
 			transition: background-size 0.25s ease 0s;
 		}
 		&:focus {

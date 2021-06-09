@@ -14,6 +14,12 @@
 @font-face {
   font-family: 'Harriet Display';
   font-style: normal;
+  font-weight: 400;
+  src: url("../../fonts/HarrietDisplay/HarrietDisplay-Regular.otf") format("opentype"); }
+
+@font-face {
+  font-family: 'Harriet Display';
+  font-style: normal;
   font-weight: 700;
   src: url("../../fonts/HarrietDisplay/HarrietDisplay-Black.otf") format("opentype"); }
 
@@ -653,6 +659,10 @@ header, footer {
     font-family: 'Harriet Display';
     font-weight: 700;
     line-height: 1; }
+  .wysiwyg__heading-2 {
+    font-family: 'Harriet Display';
+    font-size: 2rem;
+    font-weight: 400; }
   .wysiwyg__paragraph {
     font-size: 1rem;
     line-height: 1.725;
@@ -674,7 +684,7 @@ header, footer {
       background-size: 100% 150%;
       transition: background-size 0.5s ease 0.25s; }
     .wysiwyg__link:hover, .wysiwyg__link:focus {
-      background-size: 100% 100%;
+      background-size: 100% 110%;
       transition: background-size 0.25s ease 0s; }
     .wysiwyg__link:focus {
       outline: 1px solid #fcb813; }
