@@ -681,10 +681,10 @@ header, footer {
     background-size: 100% 200%;
     background-position: 50% 0%; }
     .wysiwyg__link.entered-viewport {
-      background-size: 100% 150%;
+      background-size: 100% 175%;
       transition: background-size 0.5s ease 0.25s; }
     .wysiwyg__link:hover, .wysiwyg__link:focus {
-      background-size: 100% 110%;
+      background-size: 100% 100%;
       transition: background-size 0.25s ease 0s; }
     .wysiwyg__link:focus {
       outline: 1px solid #fcb813; }
