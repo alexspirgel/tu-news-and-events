@@ -9,7 +9,7 @@ const PageBody = () => (
 		<div className="page-body">
 			<Switch>
 				<Route exact path='/'>
-					<NewsList limit="5" />
+					<NewsList limit={5} />
 				</Route>
 				<Route path='/:newsItem'>
 					<NewsItem />
