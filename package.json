@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "rewire": "^5.0.0"
   }
 }
