@@ -5,13 +5,13 @@ import NewsList from "../news-list";
 import NewsItem from "../news-item";
 
 const PageBody = () => (
-	<Router>
+	<Router basename='/news'>
 		<div className="page-body">
 			<Switch>
 				<Route exact path='/'>
 					<NewsList limit={5} />
 				</Route>
-				<Route path='/:newsItem'>
+				<Route path='/:newsItemPath'>
 					<NewsItem />
 				</Route>
 			</Switch>

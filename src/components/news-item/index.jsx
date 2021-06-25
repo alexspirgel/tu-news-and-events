@@ -7,16 +7,16 @@ import Loading from "../loading";
 import { NewsDetails } from "../node-news";
 
 const NewsItem = () => {
-  const { newsItem } = useParams();
+  const { newsItemPath } = useParams();
 
   const [node, setNode] = useState(undefined);
 
   useEffect(() => {
     setNode(undefined);
-    DataFetcher.getNewsByPath(newsItem).then(response => {
+    DataFetcher.getNewsByPath(newsItemPath).then(response => {
       setNode(response);
     })
-  }, [newsItem]);
+  }, [newsItemPath]);
 
   if (!node) {
     return <Loading />;
