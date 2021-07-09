@@ -1,32 +1,29 @@
 import React, {useEffect, useState} from 'react';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
+import DataFetcher from "../../data-fetcher";
 import PublishDate from "./components/PublishDate";
+import Paragraphs from "../paragraphs";
 
 export const NewsDetails = ({ node }) => {
 
-  const [paragraphs, setParagraphs] = useState(undefined);
+  const [fieldComponents, setFieldComponents] = useState(undefined);
 
   useEffect(() => {
-    setParagraphs(undefined);
-
     if (node.relationships.field_components) {
-      // load here, setParagraphs(data);
+      DataFetcher.getReferenceFieldData(node, 'field_components').then(response => {
+        setFieldComponents(response);
+      });
     }
   }, [node]);
 
   return (
     <div className="node--news node--news--details">
       <Link to='/'>View All News</Link>
-
       <h1 className="title">{node.attributes.title}</h1>
-
       <PublishDate node={node} />
-
-      <div className="components">
-        components will go here.
-        {paragraphs}
-      </div>
+      <Paragraphs data={fieldComponents} />
     </div>
-  )
+  );
+
 };
