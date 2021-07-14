@@ -1,5 +1,9 @@
 export default class DataFetcher {
 
+	static get contentHubRoot() {
+		return 'https://contenthub-tu-news-and-events.pantheonsite.io';
+	}
+
 	static async getJSON(path) {
 		const promise = fetch(path, {
 			method: 'GET',
@@ -19,7 +23,7 @@ export default class DataFetcher {
 
 	static async getAllNewsData() {
 		// TODO: pagination/limits should be implemented.
-		const allNewsJSON = await this.getJSON('https://contenthub-tu-news-and-events.pantheonsite.io/api/content/news');
+		const allNewsJSON = await this.getJSON(this.contentHubRoot + '/api/content/news');
 		return allNewsJSON.data;
 	}
 

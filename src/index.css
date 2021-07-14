@@ -2,3 +2,21 @@ body {
   margin: 0;
   padding: 0;
 }
+
+[data-accordion-item-state="closed"] [data-accordion="content"] {
+	/* Hide content when the item is closed. */
+	visibility: hidden
+}
+[data-accordion="content"] {
+	/* Prevent the content from overflowing the parent. */
+	overflow: hidden;
+}
+[data-accordion="content-inner"] {
+	/* Margins will cause incorrect dimension calculations. */
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+	/* Force element to account for children margins in dimensions. */
+	overflow: auto;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import BodyComponent from "./body-content";
-// import AccordionComponent from "./accordion";
+import AccordionComponent from "./accordion";
+import ImageComponent from "./image";
 
 const Paragraphs = ({data}) => {
 
@@ -9,10 +10,14 @@ const Paragraphs = ({data}) => {
 			if (paragraph.type === 'paragraph--body_content') {
 				return <BodyComponent key={paragraph.id} data={paragraph} />
 			}
-			// else if (paragraph.type === 'paragraph--accordion') {
-			// 	return <AccordionComponent key={paragraph.id} data={paragraph} />
-			// }
+			else if (paragraph.type === 'paragraph--accordion') {
+				return <AccordionComponent key={paragraph.id} data={paragraph} />
+			}
+			else if (paragraph.type === 'paragraph--image') {
+				return <ImageComponent key={paragraph.id} data={paragraph} />
+			}
 		}
+
 	};
 
 	if (!data) {
