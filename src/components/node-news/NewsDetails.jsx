@@ -34,7 +34,7 @@ export const NewsDetails = ({ node }) => {
           <div class="header__right-container">
             <div class="header__image-color-block"></div>
             <div class="header__image-area">
-              <img class="header__image" src={'http://placehold.it/800x600'} alt="Person on ladder working in the forest trees." />
+              <img class="header__image" src={'https://via.placeholder.com/800x600'} alt="Person on ladder working in the forest trees." />
             </div>
           </div>
         </div>
