@@ -6,6 +6,15 @@ body {
 
 #root {}
 
+.persistent-header {
+	padding: 2rem;
+	background-color: #222222;
+}
+.persistent-header__logo {
+	display: block;
+	max-width: 3rem;
+	margin: auto;
+}
 
 
 
